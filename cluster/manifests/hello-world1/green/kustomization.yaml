@@ -8,6 +8,9 @@ secretGenerator:
   envs:
   - secrets.env
   name: hello-world1
+patchesStrategicMerge:
+  - deployment.yaml
+  - ingress.yaml
 #patches:
 #- patch: |-
 #    - op: replace
