@@ -10,12 +10,15 @@ secretGenerator:
   name: hello-world1
 
 patchesJson6902:
-  - path: patch/ingress.yaml
-    target:
+  - target:
       group: networking.k8s.io
       version: v1
       kind: Ingress
       name: hello-world1
+    patch: |-
+      - op: replace
+        path: /spec/rules/0/http/paths/0/path
+        value: /green
 
 
 patchesStrategicMerge:
