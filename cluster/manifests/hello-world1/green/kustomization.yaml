@@ -8,20 +8,20 @@ secretGenerator:
   envs:
   - secrets.env
   name: hello-world1
-patches:
-- patch: |-
-    - op: replace
-      path: /spec/resources
-      value:
-        limits:
-          cpu: 300m
-          memory: 700Mi
-        requests:
-          cpu: 300m
-          memory: 700Mi
-  target:
-    kind: Deployment
-    name: hello-world1
+#patches:
+#- patch: |-
+#    - op: replace
+#      path: /spec/resources
+#      value:
+#        limits:
+#          cpu: 300m
+#          memory: 700Mi
+#        requests:
+#          cpu: 300m
+#          memory: 700Mi
+#  target:
+#    kind: Deployment
+#    name: hello-world1
 images:
 - name: hello-world1
   newName: alex202/hello-world1
