@@ -11,5 +11,5 @@ spec:
   project: hello-prod
   source:
     path: cluster/manifests/overlay/green/
-    repoURL: https://gitlab.com/alex-egorov/hello-cluster.git
+    repoURL: https://github.com/alex-egorov/hello-cluster.git
     targetRevision: HEAD
