@@ -25,4 +25,4 @@ secretGenerator:
 images:
 - name: hello-world1
   newName: alex202/hello-world1
-  newTag: ed5f3d79fe109b518fd35496c10053cd2cffd274
+  newTag: 47397056a389a852f0385ba98b3ad878cf1f8a1c
