@@ -10,6 +10,6 @@ spec:
     server: https://54.197.153.149:6443
   project: hello-prod
   source:
-    path: cluster/manifests/overlay/green/
+    path: cluster/manifests/overlays/green/
     repoURL: https://github.com/alex-egorov/hello-cluster.git
     targetRevision: HEAD
