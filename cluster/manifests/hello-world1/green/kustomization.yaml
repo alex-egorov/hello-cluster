@@ -8,9 +8,19 @@ secretGenerator:
   envs:
   - secrets.env
   name: hello-world1
+
+patchesJson6902:
+  - path: patch/ingress.yaml
+    target:
+      group: networking.k8s.io
+      version: v1
+      kind: Ingress
+      name: hello-world1
+
+
 patchesStrategicMerge:
-  - deployment.yaml
-  - ingress.yaml
+  - patch/deployment.yaml
+
 #patches:
 #- patch: |-
 #    - op: replace

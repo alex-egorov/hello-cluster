@@ -1,0 +1,13 @@
+- op: replace
+  path: /spec/rules/1/http/paths/0/path
+  value: /green
+
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: hello-world1
+#spec:
+#  rules:
+#    - http:
+#        paths:
+#          - path: /green
