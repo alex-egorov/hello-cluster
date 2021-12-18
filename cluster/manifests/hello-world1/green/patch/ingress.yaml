@@ -1,5 +1,5 @@
 - op: replace
-  path: /spec/rules/1/http/paths/0/path
+  path: /spec/rules/0/http/paths/0/path
   value: /green
 
 #apiVersion: networking.k8s.io/v1
