@@ -10,6 +10,6 @@ spec:
     server: https://54.197.153.149:6443
   project: hello-prod
   source:
-    path: cluster/manifests/hello-world-1/blue/
+    path: cluster/manifests/hello-world1/blue/
     repoURL: https://github.com/alex-egorov/hello-cluster.git
     targetRevision: HEAD
