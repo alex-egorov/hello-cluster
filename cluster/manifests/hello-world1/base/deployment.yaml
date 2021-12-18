@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cc
+  name: hello-world1
+spec:
+  selector:
+    matchLabels:
+      app: hello-world1
+  template:
+    metadata:
+      labels:
+        app: hello-world1
+    spec:
+      containers:
+        - image: hello-world1
+          name: hello-world1
+          ports:
+            - name: http
+              containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: hello-world1
+      restartPolicy: Always
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65534

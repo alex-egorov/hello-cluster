@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../prod/
+nameSuffix: '-blue'
+patches:
+  - target:
+      kind: Deployment
+      name: hello-world1
+    patch: |-
+      - op: replace
+        path: /spec/resources
+        value:
+          limits:
+            cpu: 300m
+            memory: 1000Mi
+          requests:
+            cpu: 300m
+            memory: 1000Mi
+replicas:
+  - name: hello-world1
+    count: 3
