@@ -25,4 +25,4 @@ patches:
 images:
 - name: hello-world1
   newName: alex202/hello-world1
-  newTag: 24e4c31e6ae6aaea252d9ac2503a340de7b195ca
+  newTag: ed5f3d79fe109b518fd35496c10053cd2cffd274
