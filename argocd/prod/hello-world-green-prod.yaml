@@ -13,3 +13,6 @@ spec:
     path: cluster/manifests/overlays/green/
     repoURL: https://github.com/alex-egorov/hello-cluster.git
     targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
