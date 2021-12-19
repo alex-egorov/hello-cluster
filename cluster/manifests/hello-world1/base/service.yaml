@@ -5,6 +5,7 @@ metadata:
     app: hello-world1
   name: hello-world1
 spec:
+  type: NodePort
   ports:
     - name: http
       port: 8080
