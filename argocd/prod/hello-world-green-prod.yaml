@@ -16,8 +16,6 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-  kustomize:
-    version: v3.10.0
   ignoreDifferences:
     - group: apps
       kind: Deployment
