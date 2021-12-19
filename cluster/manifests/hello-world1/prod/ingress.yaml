@@ -26,5 +26,5 @@ spec:
               service:
                 name: hello-world1
                 port:
-                  name: http
+                  number: 8080
             pathType: Prefix
