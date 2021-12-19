@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-world1
+  annotations:
+    alb.ingress.kubernetes.io/scheme: "internet-facing"
+    alb.ingress.kubernetes.io/healthcheck-path: "/"
+    alb.ingress.kubernetes.io/backend-protocol: "HTTP"
+    #alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    # These attributers are documented in the below places (This example uses an application load balancer)
+    # ALB: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes
+    # NLB: https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#load-balancer-attributes
+    ##alb.ingress.kubernetes.io/load-balancer-attributes: access_logs.s3.prefix=app,routing.http2.enabled=true,access_logs.s3.enabled=true,access_logs.s3.bucket=${ALB_ACCESS_LOGS_BUCKET_NAME},idle_timeout.timeout_seconds=600
+    ##alb.ingress.kubernetes.io/target-group-attributes: load_balancing.algorithm.type=least_outstanding_requests
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /
+            backend:
+              service:
+                name: hello-world1
+                port:
+                  name: http
+            pathType: Prefix
