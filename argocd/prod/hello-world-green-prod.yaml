@@ -7,7 +7,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    server: https://54.197.153.149:6443
+    server: https://54.147.65.213:6443
   project: hello-prod
   source:
     path: cluster/manifests/overlays/green/
