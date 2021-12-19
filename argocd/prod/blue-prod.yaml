@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hello-world-green
+  name: 10-blue-prod
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,12 +10,16 @@ spec:
     server: https://54.147.65.213:6443
   project: hello-prod
   source:
-    path: cluster/manifests/overlays/green/
+    path: cluster/manifests/overlays/blue/
     repoURL: https://github.com/alex-egorov/hello-cluster.git
     targetRevision: HEAD
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
+    #plugin:
+    #  env:
+    #    - name: SWAGGER_ENABLED
+    #      value: "false"
+  #syncPolicy:
+  #  syncOptions:
+  #    - CreateNamespace=true
   ignoreDifferences:
     - group: apps
       kind: Deployment

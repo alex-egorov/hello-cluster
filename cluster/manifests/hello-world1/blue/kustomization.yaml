@@ -2,21 +2,31 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../prod/
+
 nameSuffix: '-blue'
-#patches:
-#  - target:
-#      kind: Deployment
-#      name: hello-world1
-#    patch: |-
-#      - op: replace
-#        path: /spec/resources
-#        value:
-#          limits:
-#            cpu: 300m
-#            memory: 1000Mi
-#          requests:
-#            cpu: 300m
-#            memory: 1000Mi
+
+secretGenerator:
+  - behavior: merge
+    envs:
+      - secrets.env
+    name: hello-world1
+
+patchesJson6902:
+  - target:
+      group: networking.k8s.io
+      version: v1
+      kind: Ingress
+      name: hello-world1
+    patch: |-
+      - op: replace
+        path: /spec/rules/0/http/paths/0/path
+        value: /blue
+
 replicas:
   - name: hello-world1
     count: 3
+
+images:
+  - name: hello-world1
+    newName: alex202/hello-world1
+    newTag: 47397056a389a852f0385ba98b3ad878cf1f8a1c
