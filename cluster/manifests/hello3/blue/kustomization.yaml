@@ -9,24 +9,24 @@ secretGenerator:
   - behavior: merge
     envs:
       - secrets.env
-    name: hello1
+    name: hello3
 
 patchesJson6902:
   - target:
       group: networking.k8s.io
       version: v1
       kind: Ingress
-      name: hello1
+      name: hello3
     patch: |-
       - op: replace
         path: /spec/rules/0/http/paths/0/path
         value: /blue
 
 replicas:
-  - name: hello1
+  - name: hello3
     count: 3
 
 images:
-  - name: hello1
-    newName: alex202/hello1
+  - name: hello3
+    newName: alex202/hello3
     newTag: 7ae0d14fad3d044644204e38e365ab07a7a9cb07

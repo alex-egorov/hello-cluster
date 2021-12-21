@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cc
+  name: hello3
+spec:
+  selector:
+    matchLabels:
+      app: hello3
+  template:
+    metadata:
+      labels:
+        app: hello3
+    spec:
+      containers:
+        - image: hello3
+          name: hello3
+          ports:
+            - name: http
+              containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: hello3
+      restartPolicy: Always
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65534

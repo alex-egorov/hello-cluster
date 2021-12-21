@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../prod/
+
+nameSuffix: -green
+
+secretGenerator:
+- behavior: merge
+  envs:
+  - secrets.env
+  name: hello3
+
+patchesJson6902:
+- patch: |-
+    - op: replace
+      path: /spec/rules/0/http/paths/0/path
+      value: /green
+  target:
+    group: networking.k8s.io
+    kind: Ingress
+    name: hello3
+    version: v1
+
+patchesStrategicMerge:
+- patch/deployment.yaml
+
+images:
+- name: hello3
+  newName: alex202/hello3
+  newTag: 7ae0d14fad3d044644204e38e365ab07a7a9cb07
