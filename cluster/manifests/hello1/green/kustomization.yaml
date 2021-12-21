@@ -12,20 +12,20 @@ secretGenerator:
   name: hello1
 
 patchesJson6902:
-  - target:
-      group: networking.k8s.io
-      version: v1
-      kind: Ingress
-      name: hello1
-    patch: |-
-      - op: replace
-        path: /spec/rules/0/http/paths/0/path
-        value: /green
+- patch: |-
+    - op: replace
+      path: /spec/rules/0/http/paths/0/path
+      value: /green
+  target:
+    group: networking.k8s.io
+    kind: Ingress
+    name: hello1
+    version: v1
 
 patchesStrategicMerge:
-  - patch/deployment.yaml
+- patch/deployment.yaml
 
 images:
 - name: hello1
   newName: alex202/hello1
-  newTag: 47397056a389a852f0385ba98b3ad878cf1f8a1c
+  newTag: 7ae0d14fad3d044644204e38e365ab07a7a9cb07
