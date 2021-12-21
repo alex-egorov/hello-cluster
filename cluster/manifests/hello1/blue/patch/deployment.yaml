@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world1
+  name: hello1
 spec:
   template:
     spec:
       containers:
-        - name: hello-world1
+        - name: hello1
           resources:
             limits:
               cpu: 300m

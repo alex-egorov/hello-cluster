@@ -3,25 +3,25 @@ kind: Deployment
 metadata:
   labels:
     app: cc
-  name: hello-world1
+  name: hello1
 spec:
   selector:
     matchLabels:
-      app: hello-world1
+      app: hello1
   template:
     metadata:
       labels:
-        app: hello-world1
+        app: hello1
     spec:
       containers:
-        - image: hello-world1
-          name: hello-world1
+        - image: hello1
+          name: hello1
           ports:
             - name: http
               containerPort: 8080
           envFrom:
             - secretRef:
-                name: hello-world1
+                name: hello1
       restartPolicy: Always
       securityContext:
         runAsNonRoot: true

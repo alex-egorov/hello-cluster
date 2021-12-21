@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 21-hello-world1-green
+  name: 21-hello1-green
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
     server: https://54.147.65.213:6443
   project: hello-prod
   source:
-    path: cluster/manifests/hello-world1/green/
+    path: cluster/manifests/hello1/green/
     repoURL: https://github.com/alex-egorov/hello-cluster.git
     targetRevision: HEAD
     #plugin:
