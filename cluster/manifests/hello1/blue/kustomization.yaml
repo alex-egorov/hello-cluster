@@ -1,32 +1,32 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../prod/
+- ../prod/
 
-nameSuffix: '-blue'
+nameSuffix: -blue
 
 secretGenerator:
-  - behavior: merge
-    envs:
-      - secrets.env
-    name: hello1
+- behavior: merge
+  envs:
+  - secrets.env
+  name: hello1
 
 patchesJson6902:
-  - target:
-      group: networking.k8s.io
-      version: v1
-      kind: Ingress
-      name: hello1
-    patch: |-
-      - op: replace
-        path: /spec/rules/0/http/paths/0/path
-        value: /blue
+- patch: |-
+    - op: replace
+      path: /spec/rules/0/http/paths/0/path
+      value: /blue
+  target:
+    group: networking.k8s.io
+    kind: Ingress
+    name: hello1
+    version: v1
 
 replicas:
-  - name: hello1
-    count: 3
+- count: 3
+  name: hello1
 
 images:
-  - name: hello1
-    newName: alex202/hello1
-    newTag: 7ae0d14fad3d044644204e38e365ab07a7a9cb07
+- name: hello1
+  newName: alex202/hello1
+  newTag: b46be43067e8dbfa2a3b136ef39df61971922935
