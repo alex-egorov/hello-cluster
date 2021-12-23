@@ -28,4 +28,4 @@ patchesStrategicMerge:
 images:
 - name: hello2
   newName: alex202/hello2
-  newTag: ee9e2b97e847f4e9307d9e6186cb53a5f66cc5fe
+  newTag: b151dc4a78360630b1efddfc1f7f0e431770d37e
