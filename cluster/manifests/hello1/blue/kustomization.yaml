@@ -6,10 +6,10 @@ resources:
 nameSuffix: -blue
 
 secretGenerator:
-- behavior: merge
-  envs:
-  - secrets.env
-  name: hello1
+  - name: hello1
+    behavior: merge
+    #envs:
+    #  - secrets.env
 
 patchesJson6902:
 - patch: |-

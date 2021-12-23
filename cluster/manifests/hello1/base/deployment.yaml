@@ -22,6 +22,8 @@ spec:
           envFrom:
             - secretRef:
                 name: hello1
+            - secretRef:
+                name: hello1-aws-ssm
       restartPolicy: Always
       securityContext:
         runAsNonRoot: true
