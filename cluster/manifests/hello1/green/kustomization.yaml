@@ -1,14 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../prod/
-  - externalsecret.yaml
+- ../prod/
+- externalsecret.yaml
 
 nameSuffix: -green
 
 transformers:
-  - suffuxTransformation.yaml
-  - namespaceTransformer.yaml
+- suffuxTransformation.yaml
+- namespaceTransformer.yaml
 
 #generators:
 #  - ssmsecret.yaml
@@ -17,8 +17,8 @@ commonLabels:
   deploy: green
 
 secretGenerator:
-  - name: hello1
-    behavior: merge
+- behavior: merge
+  name: hello1
     #envs:
     #  - secrets.env
 
@@ -39,4 +39,4 @@ patchesStrategicMerge:
 images:
 - name: hello1
   newName: alex202/hello1
-  newTag: b46be43067e8dbfa2a3b136ef39df61971922935
+  newTag: 870611cba158500d25a8971e192f99ef475c4998
