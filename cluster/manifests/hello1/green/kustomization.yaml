@@ -13,6 +13,9 @@ transformers:
 #generators:
 #  - ssmsecret.yaml
 
+commonLabels:
+  deploy: green
+
 secretGenerator:
   - name: hello1
     behavior: merge
