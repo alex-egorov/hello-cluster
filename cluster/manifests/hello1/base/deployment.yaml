@@ -12,6 +12,8 @@ spec:
     metadata:
       labels:
         app: hello1
+    gorillaRef:
+      name: gg
     spec:
       containers:
         - image: hello1
@@ -24,6 +26,8 @@ spec:
                 name: hello1
             - secretRef:
                 name: hello1-aws-ssm
+            - secretRef:
+                name: the-map
       restartPolicy: Always
       securityContext:
         runAsNonRoot: true

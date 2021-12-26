@@ -1,0 +1,22 @@
+apiVersion: builtin
+kind: PrefixSuffixTransformer
+metadata:
+  name: customPrefixer
+suffix: "-green"
+fieldSpecs:
+  - kind: Deployment
+    path: metadata/name
+  - kind: Service
+    path: metadata/name
+  - kind: Ingress
+    path: metadata/name
+  - kind: ExternalSecret
+    path: metadata/name
+  - kind: Secret
+    path: metadata/name
+  - kind: ConfigMap
+    path: metadata/name
+  - kind: SSMSecret
+    path: metadata/name
+  - kind: Deployment
+    path: spec/template/spec/containers/envFrom/secretRef/name

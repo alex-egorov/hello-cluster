@@ -3,14 +3,18 @@ kind: Kustomization
 resources:
   - ../base
   - ingress.yaml
-  - secrets.yaml
+
 namespace: hello1
+
 commonLabels:
   env: prod
+
 secretGenerator:
   - name: hello1
     envs:
       - secrets.env
+
+
 
 
 
