@@ -4,7 +4,11 @@ resources:
   - ../prod/
   - externalsecret.yaml
 
-#nameSuffix: -green
+nameSuffix: -green
+
+transformers:
+  - suffuxTransformation.yaml
+  - namespaceTransformer.yaml
 
 #generators:
 #  - ssmsecret.yaml
@@ -28,10 +32,6 @@ patchesJson6902:
 
 patchesStrategicMerge:
 - patch/deployment.yaml
-
-transformers:
-  - suffuxTransformation.yaml
-  - namespaceTransformer.yaml
 
 images:
 - name: hello1

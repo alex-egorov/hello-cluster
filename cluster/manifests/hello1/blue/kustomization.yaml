@@ -5,6 +5,10 @@ resources:
 
 nameSuffix: -blue
 
+transformers:
+  - suffuxTransformation.yaml
+  - namespaceTransformer.yaml
+
 secretGenerator:
   - name: hello1
     behavior: merge
