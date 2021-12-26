@@ -12,8 +12,6 @@ spec:
     metadata:
       labels:
         app: hello1
-    gorillaRef:
-      name: gg
     spec:
       containers:
         - image: hello1
