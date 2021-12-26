@@ -7,7 +7,7 @@ metadata:
     alb.ingress.kubernetes.io/healthcheck-path: "/"
     alb.ingress.kubernetes.io/backend-protocol: "HTTP"
     #alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
-    #alb.ingress.kubernetes.io/group.name: "hello"
+    alb.ingress.kubernetes.io/group.name: "hello1"
     #alb.ingress.kubernetes.io/tags: "Env=prod,App=hello1,Created=Alex Egorov"
     #alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:640556732210:certificate/29522549-6c56-4538-a41c-f3f8b1955c68
     # These attributers are documented in the below places (This example uses an application load balancer)
@@ -15,14 +15,14 @@ metadata:
     # NLB: https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#load-balancer-attributes
     ##alb.ingress.kubernetes.io/load-balancer-attributes: access_logs.s3.prefix=app,routing.http2.enabled=true,access_logs.s3.enabled=true,access_logs.s3.bucket=${ALB_ACCESS_LOGS_BUCKET_NAME},idle_timeout.timeout_seconds=600
     ##alb.ingress.kubernetes.io/target-group-attributes: load_balancing.algorithm.type=least_outstanding_requests
-    #external-dns.alpha.kubernetes.io/hostname: hello1.k8s.by, www.hello1.k8s.by
+    external-dns.alpha.kubernetes.io/hostname: hello1.k8s.by, www.hello1.k8s.by
 spec:
   ingressClassName: alb
   rules:
     - host: hello1.k8s.by
       http:
         paths:
-          - path: /hello1
+          - path: /
             backend:
               service:
                 name: hello1
