@@ -38,3 +38,10 @@ images:
 - name: hello1
   newName: alex202/hello1
   newTag: b46be43067e8dbfa2a3b136ef39df61971922935
+
+# yq write -i charts/hello/values.yaml image.tag ${TAG}
+# yq eval '.kind |= ""' manifests/hello1/green/kustomization.yaml (v4)
+# yq eval '.images[0].newTag ' manifests/hello1/green/kustomization.yaml
+
+# echo $(jq -n --arg chartVersion "$chartVersion" --arg imgVersion "$(imageTag)" '{chartVersion: $chartVersion, imgVersion: $imgVersion}') > $(build.artifactStagingDirectory)/variables.json
+# helm chart push  $(registryServerName)/helm/$(projectName):$chartVersion

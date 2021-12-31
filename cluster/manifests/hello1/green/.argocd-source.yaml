@@ -1,0 +1,3 @@
+kustomize:
+  images:
+    - alex202/hello1:870611cba158500d25a8971e192f99ef475c4998
