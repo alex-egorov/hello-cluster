@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: hello-prod
+  namespace: argocd-prod
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: "Production Cluster"
+  sourceRepos:
+    - https://github.com/alex-egorov/hello-cluster
+  destinations:
+    - server:https://54.147.65.213:6443
+      namespace: 'hello1,hello2,hello3'
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  roles:
+    - name: "production-admins"
+      description: "Production Adminstrator"
+      policies:
+        - p, role:admin-role, applications, *, hello-prod/*, allow
+      groups:
+        - "Admins"
+    - name: "production-viewers"
+      description: "Production Viewers"
+      policies:
+        - p, role:viewer-role, applications, *, hello-prod/*, allow
+      groups:
+        - "Viewers"
+  orphanedResources:
+    warn: true
