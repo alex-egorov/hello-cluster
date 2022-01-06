@@ -11,4 +11,4 @@ spec:
     - 'git@github.com:alex-egorov/hello-private.git'
   destinations:
     - server: https://54.147.65.213:6443
-      namespace: default
+      namespace: '*'
