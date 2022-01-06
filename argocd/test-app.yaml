@@ -13,3 +13,7 @@ spec:
     path: cluster/
     repoURL: git@github.com:alex-egorov/hello-private.git
     targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
