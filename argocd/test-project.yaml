@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: test
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: "Test Deployments"
+  sourceRepos:
+    - '*'
+  destinations:
+    - server: https://54.147.65.213:6443
+      namespace: default

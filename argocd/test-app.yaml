@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://54.147.65.213:6443
+  project: test
+  source:
+    path: cluster/
+    repoURL: git@github.com:alex-egorov/hello-private.git
+    targetRevision: HEAD
