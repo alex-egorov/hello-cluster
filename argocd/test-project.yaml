@@ -9,6 +9,19 @@ spec:
   description: "Test Deployments"
   sourceRepos:
     - 'git@github.com:alex-egorov/hello-private.git'
-  destinations:
-    - server: https://54.147.65.213:6443
-      namespace: default
+  #destinations:
+  #  - server: https://54.147.65.213:6443
+  #    namespace: default
+  # Deny all cluster-scoped resources from being created, except for Namespace
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace
+
+  # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
+  namespaceResourceBlacklist:
+    - group: ''
+      kind: ResourceQuota
+    - group: ''
+      kind: LimitRange
+    - group: ''
+      kind: NetworkPolicy
