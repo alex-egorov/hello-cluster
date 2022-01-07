@@ -36,4 +36,7 @@ patchesJson6902:
 patchesStrategicMerge:
 - patch/deployment.yaml
 
-
+images:
+  - name: hello1
+    newName: alex202/hello1
+    newTag: 870611cba158500d25a8971e192f99ef475c4998
