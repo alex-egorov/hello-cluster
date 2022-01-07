@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 10-blue-prod
+  name: blue-prod
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -25,3 +25,5 @@ spec:
       kind: Deployment
       jsonPointers:
         - /spec/replicas
+  orphanedResources:
+    warn: false

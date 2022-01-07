@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 23-hello3-green
+  name: hello3-green
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -13,3 +13,5 @@ spec:
     path: cluster/manifests/hello3/green/
     repoURL: https://github.com/alex-egorov/hello-cluster.git
     targetRevision: HEAD
+  orphanedResources:
+    warn: false
