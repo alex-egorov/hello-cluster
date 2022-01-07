@@ -10,8 +10,8 @@ spec:
   sourceRepos:
     - https://github.com/alex-egorov/hello-cluster
   destinations:
-    - server: '*'
-      namespace: hello1
+    - namespace: '*'
+      server: '*'
   clusterResourceWhitelist:
     - group: ''
       kind: Namespace
