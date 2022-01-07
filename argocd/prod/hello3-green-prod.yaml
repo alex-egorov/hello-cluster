@@ -13,5 +13,3 @@ spec:
     path: cluster/manifests/hello3/green/
     repoURL: https://github.com/alex-egorov/hello-cluster.git
     targetRevision: HEAD
-  orphanedResources:
-    warn: false
