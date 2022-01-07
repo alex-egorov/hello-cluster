@@ -11,7 +11,7 @@ spec:
     - https://github.com/alex-egorov/hello-cluster
   destinations:
     - server: https://54.147.65.213:6443
-      namespace: 'hello1,hello2,hello3'
+      namespace: hello1
   clusterResourceWhitelist:
     - group: ''
       kind: Namespace
